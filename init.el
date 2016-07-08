@@ -13,6 +13,7 @@
 (require 'ido) ;; Inbuilt - Finding files made easier
 (ido-mode t)
 (global-auto-revert-mode 1) ;; Reload files that have been changed
+(setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
 
 (require 'windmove)
 (windmove-default-keybindings 'shift)
@@ -62,17 +63,6 @@
  '(custom-safe-themes
    (quote
     ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
- ;; '(haskell-process-auto-import-loaded-modules t)
- ;; '(haskell-process-log t)
- ;; '(haskell-process-suggest-remove-import-lines t)
- ;; '(haskell-process-type (quote cabal-repl))
- ;; '(haskell-tags-on-save t)
- ;; '(purescript-mode-hook
- ;;   (quote
- ;;    (turn-on-purescript-indent))
- ;;    (quote
- ;;     (psc-ide-mode company-mode))
- ;;    )
  )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -108,44 +98,8 @@
 (require 'etags-table)
 (setq etags-table-search-up-depth 10)
 
-;;;; Haskell Autocompletion
-;;(add-hook 'haskell-mode-hook 'company-mode)
-(require 'ghc)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-(add-to-list 'company-backends 'company-ghc)
-(custom-set-variables '(company-ghc-show-info t))
-
-;;;; Haskell-mode indenting and navigation
-(add-hook 'haskell-mode-hook #'hindent-mode)
-(custom-set-variables '(haskell-tags-on-save t))
-
-;;; Haskell
-
-(add-hook 'haskell-mode-hook 'haskell-indent-mode)
-;;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'turn-on-hi2)
-(eval-after-load 'haskell-mode
-  '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
-(let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
-  (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
-  (add-to-list 'exec-path my-cabal-path))
-
-(eval-after-load 'haskell-mode '(progn
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
-  ))
-(eval-after-load 'haskell-cabal '(progn
-  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-
-(custom-set-variables '(haskell-process-type 'stack-ghci))
+;; Intero (Haskell)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PureScript
@@ -193,7 +147,6 @@
 ;;   '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
 ;; (add-hook 'jedi-mode-hook 'jedi-direx:setup)
 
-
 ;; Get Python version
 (setq python_version
       (string-to-number
@@ -202,32 +155,6 @@
        7 -3)))
 ;; Is it a new version? (Boolean)
 (setq new_python (>= python_version 2.7))
-
-;; IPython
-
-;; ;; IPython shell:
-
-;; (if new_python 
-;;     (setq
-;;      python-shell-interpreter "ipython"
-;;      python-shell-interpreter-args ""
-;;      python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-;;      python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-;;      python-shell-completion-setup-code
-;;      "from IPython.core.completerlib import module_completion"
-;;      python-shell-completion-string-code
-;;      "';'.join(module_completion('''%s'''))\n"
-;;      python-shell-completion-string-code
-;;      "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-;;   )
-
-;; (if nil ;new_python
-;;     (progn
-;;       (require 'ein)
-;;       (setq-default py-python-command-args '("--colors" "DarkBG"))
-;;       (setq ein:use-auto-complete t)
-;;       )
-;;   nil)
 
 ;; Enable Git
 ;; (require 'magit)
@@ -272,25 +199,6 @@
       (let ((web-mode-enable-part-face nil))
         ad-do-it)
     ad-do-it))
-
-
-;; (flycheck-define-checker jsxhint-checker
-;;   "A JSX syntax and style checker based on JSXHint."
-
-;;   :command ("jsxhint" source)
-;;   :error-patterns
-;;   ((error line-start (1+ nonl) ": line " line ", col " column ", "
-;;     (message) line-end))
-;;   :modes (web-mode))
-;; (add-hook 'web-mode-hook
-;;           (lambda ()
-;;             (when (equal web-mode-content-type "jsx")
-;;               ;; enable flycheck
-;;               (flycheck-select-checker 'jsxhint-checker)
-;;               (flycheck-mode))))
-
-;; (add-hook 'jsx-mode-hook
-;;           (lambda () (auto-complete-mode 1)))
 
 ;; Stylus and jade modes
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/jade-mode")
