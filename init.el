@@ -2,90 +2,59 @@
 ;;; Commentary:
 ;;; Code:
 
-(global-unset-key (kbd "C-z"))
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-(setq inhibit-startup-message t)
-(set-frame-font "Inconsolata-16")
-(require 'uniquify) ;; Inbuilt - Display sane file names
-(setq uniquify-buffer-name-style 'forward)
-(require 'ido) ;; Inbuilt - Finding files made easier
-(ido-mode t)
-(global-auto-revert-mode 1) ;; Reload files that have been changed
-(setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
-
-(require 'windmove)
-(windmove-default-keybindings 'shift)
-(global-set-key (kbd "C-e") 'eshell)
-
-;; Save all tempfiles in $TMPDIR/emacs$UID/
-(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
-(setq backup-directory-alist
-      `((".*" . ,emacs-tmp-dir)))
-(setq auto-save-file-name-transforms
-      `((".*" ,emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix
-      emacs-tmp-dir)
-
-;; Set tab width to 4
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-
-;; Mouse
-(mouse-wheel-mode t)
-(xterm-mouse-mode t)
-
-;; Proxy
-
-(setq url-proxy-services
-   '(("no_proxy" . "^//(localhost|127.\.*|parrot.bbs.bunnings.com.au)/")
-     ("http" . "itchy.internal.bunnings.com.au:8080")
-     ("https" . "itchy.internal.bunnings.com.au:8080")))
+;; Misc config
+(add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
+(add-to-list 'load-path "~/.emacs.d/dotfiles")
+(load-library "misc-config.el")
+(load-library "proxy-config.el")
 
 ;; Package
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives
              ;; '("marmalade" . "http://marmalade-repo.org/packages/")
              ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
              '("melpa" . "http://melpa.org/packages/")
              t)
+(package-initialize)
 
-;; Solarized theme
+(setq package-list '(solarized-theme
+                     auto-complete
+                     company
+                     company-ghc
+                     csv-mode
+                     elm-mode
+                     flycheck
+                     ghc
+                     haskell-mode
+                     js2-mode
+                     json-mode
+                     magit
+                     markdown-mode
+                     nix-mode
+                     python-mode
+                     virtualenv
+                     yaml-mode
+                     writeroom-mode))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
- )
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(load-theme 'solarized-dark t)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
-;;; Find things quickly
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-;; be generous with garbage collection to improve speed
-(setq gc-cons-threshold 20000000)
-;; isearch flx style (flx-isearch)
-(global-set-key (kbd "C-M-s") 'flx-isearch-forward)
-(global-set-key (kbd "C-M-r") 'flx-isearch-backward)
+(dolist (package package-list)
+  (when (not (package-installed-p package))
+    (package-install package)))
 
+;; Haskell
+(load-library "haskell-config.el")
+
+;; Override haskell-mode's BS.
+(global-set-key (kbd "M-n") 'next-error)
+(define-key interactive-haskell-mode-map (kbd "M-n") 'next-error)
+(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
+(setq exec-path (append exec-path '("~/.local/bin")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Must review everything below this line
 
 ;;;; Syntax checking (Flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -98,36 +67,6 @@
 (require 'etags-table)
 (setq etags-table-search-up-depth 10)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Haskell
-
-;; Intero (Haskell)
-(add-hook 'haskell-mode-hook 'intero-mode)
-
-;;; flycheck
-(package-install 'flycheck-haskell)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-;;; company mode
-(package-install 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; haskell mode
-(package-install 'haskell-mode)
-(eval-after-load "haskell-mode"
-  '(progn
-     (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-     (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-     (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-     (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-     (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-     (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-     (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-     (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-          (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PureScript
