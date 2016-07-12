@@ -1,6 +1,7 @@
 ;; Misc config
 
 (add-to-list 'load-path "~/.emacs.d/elpa/")
+
 (global-unset-key (kbd "C-z"))
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
@@ -12,7 +13,12 @@
 (require 'ido) ;; Inbuilt - Finding files made easier
 (ido-mode t)
 (global-auto-revert-mode 1) ;; Reload files that have been changed
-(setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
+
+
+;; ;;;; Tagging
+;; (require 'etags-table)
+;; (setq etags-table-search-up-depth 10)
+;; (setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
 
 (require 'windmove)
 (windmove-default-keybindings 'shift)
