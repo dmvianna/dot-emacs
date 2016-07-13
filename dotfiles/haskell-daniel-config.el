@@ -16,9 +16,11 @@
                                   ))
 
 ;;;; Haskell syntax check
-(require 'flycheck)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+;; (require 'flycheck)
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(require 'hs-lint)
+
 
 ;;;; Haskell Autocompletion
 (require 'ghc)
