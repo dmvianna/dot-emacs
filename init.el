@@ -23,7 +23,9 @@
                      company-ghc
                      csv-mode
                      elm-mode
+                     etags-table
                      flycheck
+                     flycheck-haskell
                      ghc
                      haskell-mode
                      js2-mode
@@ -50,14 +52,7 @@
 ;; (global-set-key (kbd "C-g") 'magit-status)
 
 ;; Haskell
-(load-library "haskell-config.el")
-
-;; Override haskell-mode's BS.
-(global-set-key (kbd "M-n") 'next-error)
-(define-key interactive-haskell-mode-map (kbd "M-n") 'next-error)
-(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
-(setq exec-path (append exec-path '("~/.local/bin")))
-
+(load-library "haskell-daniel-config.el")
 
 ;; ;; highlight-symbol
 ;; (add-to-list 'load-path "~/.emacs.d/idle-highlight/")

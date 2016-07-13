@@ -1,7 +1,7 @@
 ;; Haskell
 
 ;; (add-to-list 'load-path "~/.emacs.d/haskell/haskell-mode/")
-(add-to-list 'load-path "~/.emacs.d/haskell/hindent/elisp/")
+;; (add-to-list 'load-path "~/.emacs.d/dotfiles/elisp/")
 
 (require 'hindent)
 (require 'haskell-mode)
@@ -14,7 +14,7 @@
 
 (setq auto-mode-alist (cons '("\.hs$" . haskell-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\.lhs$" . tex-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\.purs$" . haskell-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\.purs$" . haskell-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("Shakefile" . haskell-mode) auto-mode-alist))
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -25,7 +25,7 @@
  '(haskell-process-type (quote cabal-repl))
  '(haskell-process-args-ghci '())
  ;; '(haskell-process-args-cabal-repl
- ;;   '("--ghc-option=-ferror-spans" "--with-ghc=ghci-ng"))
+ ;;   '("--ghc-option=-ferror-spans" "--with-ghc=ghci-ng")) ;; unset
  '(haskell-notify-p t)
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save nil)
@@ -72,11 +72,10 @@
 (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-mode-stylish-buffer)
 
 ;; GHCi-ng
-;; (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-mode-show-type-at)
+;; (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-mode-show-type-at) ;; unset
 
 ;; ghc-mod
 ;; (define-key haskell-mode-map (kbd "C-c C-t") 'ghc-show-type)
-;; (define-key haskell-mode-map (kbd "C-c C-i") 'ghc-show-info)
 ;; (define-key haskell-mode-map (kbd "C-c C-i") 'ghc-show-info)
 
 ;; (define-key haskell-mode-map (kbd "C-?") 'haskell-mode-find-uses)
@@ -134,18 +133,24 @@
 ;; (require 'stack-mode)
 ;; (add-hook 'haskell-mode-hook 'stack-mode)
 
-;; (require 'ghc)
+(require 'ghc)
 
-;; (autoload 'ghc-init "ghc" nil t)
-;; (autoload 'ghc-debug "ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (add-hook 'haskell-mode-hook #'hindent-mode)
 
-;; (require 'company)
-;; (add-hook 'haskell-mode-hook 'company-mode)
-;; (add-to-list 'company-backends 'company-ghc)
-;; (custom-set-variables '(company-ghc-show-info t))
+(require 'company)
+(add-hook 'haskell-mode-hook 'company-mode)
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
+
+;; Override haskell-mode's BS.
+(global-set-key (kbd "M-n") 'next-error)
+(define-key interactive-haskell-mode-map (kbd "M-n") 'next-error)
+(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
+(setq exec-path (append exec-path '("~/.local/bin")))
 
 (provide 'haskell-config)
 

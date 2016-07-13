@@ -1,6 +1,7 @@
 ;; Misc config
 
-(add-to-list 'load-path "~/.emacs.d/elpa/")
+(prefer-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
 
 (global-unset-key (kbd "C-z"))
 (menu-bar-mode -1)
@@ -14,8 +15,7 @@
 (ido-mode t)
 (global-auto-revert-mode 1) ;; Reload files that have been changed
 
-
-;; ;;;; Tagging
+;; ;; Tagging
 ;; (require 'etags-table)
 ;; (setq etags-table-search-up-depth 10)
 ;; (setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
@@ -41,20 +41,6 @@
 ;; Mouse
 (mouse-wheel-mode t)
 (xterm-mouse-mode t)
-
-;; ;;; Find things quickly
-;; (require 'flx-ido)
-;; (ido-mode 1)
-;; (ido-everywhere 1)
-;; (flx-ido-mode 1)
-;; ;; disable ido faces to see flx highlights.
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-use-faces nil)
-;; ;; be generous with garbage collection to improve speed
-;; (setq gc-cons-threshold 20000000)
-;; ;; isearch flx style (flx-isearch)
-;; (global-set-key (kbd "C-M-s") 'flx-isearch-forward)
-;; (global-set-key (kbd "C-M-r") 'flx-isearch-backward)
 
 (provide 'misc-config)
 
