@@ -33,9 +33,13 @@
                      magit
                      markdown-mode
                      nix-mode
+                     psc-ide
+                     psci
+                     purescript-mode
                      python-mode
                      rainbow-delimiters
                      rainbow-mode
+                     repl-toggle
                      virtualenv
                      yaml-mode
                      writeroom-mode))
@@ -78,6 +82,9 @@
 
 ;; Nix
 (require 'nix-mode)
+
+;; PureScript
+(load-library "purescript-config.el")
 
 ;; Python
 (require 'python-mode)
