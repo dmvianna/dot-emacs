@@ -42,6 +42,11 @@
 (mouse-wheel-mode t)
 (xterm-mouse-mode t)
 
+;; Only load if library present
+(defmacro with-library (symbol &rest body)
+  `(when (require ,symbol nil t)
+     ,@body))
+
 (provide 'misc-config)
 
 ;; misc-config.el ends here

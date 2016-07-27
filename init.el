@@ -5,8 +5,8 @@
 ;; Misc config
 (add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
 (add-to-list 'load-path "~/.emacs.d/dotfiles")
-(load-library "misc-config.el")
-(load-library "proxy-config.el")
+(require 'misc-config)
+(with-library 'proxy-config)
 
 ;; Package
 (require 'package)
