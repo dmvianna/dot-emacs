@@ -3,6 +3,7 @@
 (prefer-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 
+(column-number-mode t)
 (global-unset-key (kbd "C-z"))
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
