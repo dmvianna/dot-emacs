@@ -34,7 +34,7 @@
 (custom-set-variables '(company-ghc-show-info t))
 
 ;;;; Haskell-mode indenting and navigation
-(add-hook 'haskell-mode-hook #'hindent-mode)
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 ;; (custom-set-variables '(haskell-tags-on-save t))
 
 (provide 'haskell-daniel-config)
