@@ -20,7 +20,9 @@
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 (require 'hs-lint)
-
+(defun hslint-mode-hook ()
+  (local-set-key "\C-cl" 'hs-lint))
+(add-hook 'haskell-mode-hook 'hslint-mode-hook)
 
 ;;;; Haskell Autocompletion
 (require 'ghc)
