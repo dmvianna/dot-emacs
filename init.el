@@ -2,12 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Misc config
-(add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
-(add-to-list 'load-path "~/.emacs.d/dotfiles")
-(require 'misc-config)
-(with-library 'proxy-config)
-
 ;; Package
 (require 'package)
 (add-to-list 'package-archives
@@ -40,6 +34,7 @@
                      rainbow-delimiters
                      rainbow-mode
                      repl-toggle
+                     use-package
                      virtualenv
                      yaml-mode
                      writeroom-mode))
@@ -50,6 +45,17 @@
 (dolist (package package-list)
   (when (not (package-installed-p package))
     (package-install package)))
+
+;; Misc config
+(add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
+(add-to-list 'load-path "~/.emacs.d/dotfiles")
+(require 'misc-config)
+(with-library 'proxy-config)
+
+;; Flycheck -- global syntax check (needed for hlint)
+(use-package flycheck
+             :ensure t
+             :init (global-flycheck-mode))
 
 ;; Git
 ;; (require 'magit)

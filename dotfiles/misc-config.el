@@ -43,6 +43,9 @@
 (mouse-wheel-mode t)
 (xterm-mouse-mode t)
 
+;; use-package
+(require 'use-package)
+
 ;; Only load if library present
 (defmacro with-library (symbol &rest body)
   `(when (require ,symbol nil t)

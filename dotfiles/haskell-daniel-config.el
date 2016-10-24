@@ -3,7 +3,7 @@
 (setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
 (setq exec-path (append exec-path '("~/.local/bin")))
 (custom-set-variables '(haskell-process-type 'stack-ghci))
-(add-hook 'haskell-mode-hook 'turn-on-hi2)
+;; (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
 (eval-after-load 'haskell-mode '(progn
                                   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
