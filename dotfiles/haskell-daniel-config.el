@@ -1,28 +1,25 @@
-;; Haskell
+;;; Haskell -- Summary:
+;;;
+;;; This is where I configure most of my
+;;; Haskell development environment
+;;;
+;;; Commentary:
+;;; Code:
 
 (setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
 (setq exec-path (append exec-path '("~/.local/bin")))
 (custom-set-variables '(haskell-process-type 'stack-ghci))
-;; (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
-(eval-after-load 'haskell-mode '(progn
-                                  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-                                  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-                                  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-                                  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
-                                  ))
-
-;;;; Haskell syntax check
-;; (require 'flycheck)
-;; (eval-after-load 'flycheck
-;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
-(require 'hs-lint)
-(defun hslint-mode-hook ()
-  (local-set-key "\C-cl" 'hs-lint))
-(add-hook 'haskell-mode-hook 'hslint-mode-hook)
+(eval-after-load 'haskell-mode
+  '(progn
+     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+     (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+     (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+     (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+     (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+     (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+     (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+     ))
 
 ;;;; Haskell Autocompletion
 (require 'ghc)
@@ -41,5 +38,5 @@
 
 (provide 'haskell-daniel-config)
 
-;; haskell-daniel-config.el ends here
+;;; haskell-daniel-config.el ends here
 
