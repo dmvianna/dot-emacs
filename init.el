@@ -22,6 +22,7 @@
                      flycheck-haskell
                      ghc
                      haskell-mode
+                     hindent
                      js2-mode
                      json-mode
                      magit
