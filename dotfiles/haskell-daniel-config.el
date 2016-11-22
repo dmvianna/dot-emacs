@@ -20,6 +20,9 @@
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 (require 'hs-lint)
+(defun my-haskell-mode-hook ()
+  (local-set-key "\C-cl" 'hs-lint))
+(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
 
 ;;;; Haskell Autocompletion
@@ -34,6 +37,7 @@
 (custom-set-variables '(company-ghc-show-info t))
 
 ;;;; Haskell-mode indenting and navigation
+(require 'hindent)
 (add-hook 'haskell-mode-hook #'hindent-mode)
 ;; (custom-set-variables '(haskell-tags-on-save t))
 
