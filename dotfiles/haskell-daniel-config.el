@@ -44,6 +44,20 @@
 ;;;; Haskell-mode indenting and navigation
 (require 'hindent)
 (add-hook 'haskell-mode-hook #'hindent-mode)
+(custom-set-variables
+ '(haskell-process-suggest-haskell-docs-imports t)
+ '(hindent-reformat-buffer t)
+ '(hindent-style "johan-tibell")
+ '(haskell-complete-module-preferred
+   '("Data.ByteString"
+     "Data.ByteString.Lazy"
+     "Data.Conduit"
+     "Data.Function"
+     "Data.List"
+     "Data.Map"
+     "Data.Maybe"
+     "Data.Monoid"
+     "Data.Ord")))
 ;; (custom-set-variables '(haskell-tags-on-save t))
 
 (provide 'haskell-daniel-config)
