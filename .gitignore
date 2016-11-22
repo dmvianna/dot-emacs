@@ -1,0 +1,8 @@
+proxy-config.el
+auto-save-list/
+elpa/
+eshell/
+magit-errors
+request/
+site-lisp/
+*~
