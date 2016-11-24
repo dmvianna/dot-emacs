@@ -77,6 +77,7 @@
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . js2-mode))
+(setq-default js2-strict-missing-semi-warning nil)
 
 ;; JSON
 (require 'json-mode)

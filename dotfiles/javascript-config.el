@@ -1,6 +1,6 @@
 
 ;; Javascript
-
+;;; Code:
 
 ;; JavaScript autocompletion and introspection
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
@@ -37,4 +37,4 @@
 
 (provide 'javascript-config.el)
 
-;; javascript-config.el ends here
+;;; javascript-config.el ends here
