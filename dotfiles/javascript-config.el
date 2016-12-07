@@ -2,6 +2,10 @@
 ;; Javascript
 ;;; Code:
 
+;; Indentation
+(setq-default indent-tabs-mode nil)
+(setq-default js2-basic-offset 2)
+
 ;; JavaScript autocompletion and introspection
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-hook 'tern-mode-hook 'auto-complete-mode)
