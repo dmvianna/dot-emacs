@@ -130,7 +130,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-ghc-show-info t)
+ '(haskell-complete-module-preferred
+   (quote
+    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+ '(haskell-process-suggest-haskell-docs-imports t)
  '(haskell-process-type (quote stack-ghci))
+ '(hindent-reformat-buffer t)
+ '(hindent-style "johan-tibell")
+ '(package-selected-packages
+   (quote
+    (hindent yaml-mode writeroom-mode virtualenv use-package solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nix-mode markdown-mode magit json-mode js2-mode flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
