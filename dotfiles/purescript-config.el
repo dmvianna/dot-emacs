@@ -4,8 +4,8 @@
 (require 'purescript-mode)
 
 ;; PureScript IDE
-(customize-set-variable 'psc-ide-executable "~/.local/bin/psc-ide-server")
-(require 'psc-ide)
+;; (customize-set-variable 'psc-ide-executable "~/.local/bin/psc-ide-server")
+;; (require 'psc-ide)
 (add-hook 'purescript-mode-hook
           (lambda ()
             (psc-ide-mode)
