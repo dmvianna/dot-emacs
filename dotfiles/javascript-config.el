@@ -5,6 +5,9 @@
 ;;; js2 mode:
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+(setq js2-strict-missing-semi-warning nil)
+;; (setq js2-mode-show-parse-errors nil)
+;; (setq js2-mode-show-strict-warnings nil)
 
 ;;; Web mode:
 (require 'web-mode)
