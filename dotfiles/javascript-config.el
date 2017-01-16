@@ -2,6 +2,35 @@
 ;;; Javascript
 ;;; Code:
 
+;;; js2 mode:
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+
+;;; Web mode:
+(require 'web-mode)
+(add-hook 'web-mode-hook
+          (lambda ()
+            (setq web-mode-attr-indent-offset 2)
+            (setq web-mode-style-padding 2)
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)
+            (setq web-mode-css-indent-offset 2)
+            (setq web-mode-enable-css-colorization t)
+            ))
+
+(setq web-mode-ac-sources-alist
+      '(("css" . (ac-source-css-property))
+        ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+
+(defun rm-maybe-jsx-mode ()
+  (when (string-equal "jsx" web-mode-content-type)
+    (js2-minor-mode 1)))
+(add-hook 'web-mode-hook 'rm-maybe-jsx-mode)
+(add-to-list 'web-mode-content-types '("jsx" . "\\.jsx?\\'"))
+(add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
+
 ;; disable jshint since we prefer eslint
 (require 'flycheck)
 (setq-default flycheck-disabled-checkers
@@ -41,8 +70,8 @@
               (append flycheck-disabled-checkers
                           '(json-jsonlist)))
 
-;; use local eslint from node_modules before global
-;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
+;;; use local eslint from node_modules before global
+;;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
 (defun my/use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
