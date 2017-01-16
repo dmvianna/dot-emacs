@@ -39,6 +39,7 @@
                      use-package
                      virtualenv
                      yaml-mode
+                     web-mode
                      writeroom-mode))
 
 (when (not package-archive-contents)
