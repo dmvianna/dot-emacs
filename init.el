@@ -25,6 +25,7 @@
                      hindent
                      js2-mode
                      json-mode
+                     nvm
                      magit
                      markdown-mode
                      nix-mode
@@ -58,12 +59,16 @@
              :ensure t
              :init (global-flycheck-mode))
 
+;; customize flycheck temp file prefix
+(setq-default flycheck-temp-prefix ".flycheck")
+
 ;; Git
 ;; (require 'magit)
 ;; (global-set-key (kbd "C-g") 'magit-status)
 
 ;; Haskell
-(load-library "haskell-daniel-config.el")
+(require 'haskell-daniel-config)
+;; (load-library "haskell-daniel-config.el")
 
 ;; ;; highlight-symbol
 ;; (add-to-list 'load-path "~/.emacs.d/idle-highlight/")
@@ -75,11 +80,12 @@
 
 ;; JavaScript
 
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . js2-mode))
-(setq-default js2-strict-missing-semi-warning nil)
-(setq-default indent-tabs-mode nil)
-(setq-default js2-basic-offset 2)
+(require 'javascript-config)
+;; (require 'js2-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . js2-mode))
+;; (setq-default js2-strict-missing-semi-warning nil)
+;; (setq-default indent-tabs-mode nil)
+;; (setq-default js2-basic-offset 2)
 
 ;; JSON
 (require 'json-mode)
@@ -127,29 +133,29 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-ghc-show-info t)
- '(haskell-complete-module-preferred
-   (quote
-    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
- '(haskell-process-suggest-haskell-docs-imports t)
- '(haskell-process-type (quote stack-ghci))
- '(hindent-reformat-buffer t)
- '(hindent-style "johan-tibell")
- '(package-selected-packages
-   (quote
-    (hindent yaml-mode writeroom-mode virtualenv use-package solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nix-mode markdown-mode magit json-mode js2-mode flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
- '(safe-local-variable-values
-   (quote
-    ((haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(company-ghc-show-info t)
+;;  '(haskell-complete-module-preferred
+;;    (quote
+;;     ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+;;  '(haskell-process-suggest-haskell-docs-imports t)
+;;  '(haskell-process-type (quote stack-ghci))
+;;  '(hindent-reformat-buffer t)
+;;  '(hindent-style "johan-tibell")
+;;  '(package-selected-packages
+;;    (quote
+;;     (hindent yaml-mode writeroom-mode virtualenv use-package solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nix-mode markdown-mode magit json-mode js2-mode flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
+;;  '(safe-local-variable-values
+;;    (quote
+;;     ((haskell-process-use-ghci . t)
+;;      (haskell-indent-spaces . 4)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )

@@ -1,7 +1,10 @@
-;; Misc config
+;;; Package --- Summary
+;;; Commentary:
+;;; Misc config
+;;; Code:
 
 (prefer-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
 
 (column-number-mode t)
 (global-unset-key (kbd "C-z"))
@@ -16,7 +19,7 @@
 (ido-mode t)
 (global-auto-revert-mode 1) ;; Reload files that have been changed
 
-;; ;; Tagging
+;;; Tagging
 ;; (require 'etags-table)
 ;; (setq etags-table-search-up-depth 10)
 ;; (setq tags-revert-without-query 1) ;; Stop annoying tag reversal queries
@@ -25,7 +28,7 @@
 (windmove-default-keybindings 'shift)
 (global-set-key (kbd "C-e") 'eshell)
 
-;; Save all tempfiles in $TMPDIR/emacs$UID/
+;;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
 (setq backup-directory-alist
       `((".*" . ,emacs-tmp-dir)))
@@ -34,23 +37,23 @@
 (setq auto-save-list-file-prefix
       emacs-tmp-dir)
 
-;; Set tab width to 4
+;;; Set tab width
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
 
-;; Mouse
+;;; Mouse
 (mouse-wheel-mode t)
 (xterm-mouse-mode t)
 
-;; use-package
+;;; use-package
 (require 'use-package)
 
-;; Only load if library present
+;;; Only load if library present
 (defmacro with-library (symbol &rest body)
   `(when (require ,symbol nil t)
      ,@body))
 
 (provide 'misc-config)
 
-;; misc-config.el ends here
+;;; misc-config.el ends here
