@@ -36,6 +36,7 @@
                      rainbow-delimiters
                      rainbow-mode
                      repl-toggle
+                     sws-mode
                      use-package
                      virtualenv
                      yaml-mode
@@ -160,3 +161,25 @@
 ;;  ;; Your init file should contain only one such instance.
 ;;  ;; If there is more than one, they won't work right.
 ;;  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-ghc-show-info t)
+ '(haskell-complete-module-preferred
+   (quote
+    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+ '(haskell-process-suggest-haskell-docs-imports t)
+ '(haskell-process-type (quote stack-ghci))
+ '(hindent-reformat-buffer t)
+ '(hindent-style "johan-tibell")
+ '(package-selected-packages
+   (quote
+    (jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -83,12 +83,6 @@
       (setq-local flycheck-javascript-eslint-executable eslint))))
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
-;; Stylus and jade modes
-;;(add-to-list 'load-path "~/.emacs.d/vendor/jade-mode")
-    (require 'sws-mode)
-    (require 'jade-mode)
-    (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-
 (provide 'javascript-config)
 
 ;;; javascript-config.el ends here
