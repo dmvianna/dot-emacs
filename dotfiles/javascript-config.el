@@ -2,9 +2,10 @@
 ;;; Javascript
 ;;; Code:
 
-;;; js2 mode:
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+;; ;;; js2 mode:
+;; (add-to-list 'auto-mode-alist '("\\.js[x]?" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+;; (add-to-list 'auto-mode-alist '(flycheck-checker . javascript-eslint))
 (setq js2-strict-missing-semi-warning nil)
 ;; (setq js2-mode-show-parse-errors nil)
 ;; (setq js2-mode-show-strict-warnings nil)
