@@ -5,4 +5,5 @@ eshell/
 magit-errors
 request/
 site-lisp/
+ac-comphist.dat
 *~
