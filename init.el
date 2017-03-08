@@ -13,6 +13,7 @@
 
 (setq package-list '(solarized-theme
                      auto-complete
+                     cargo
                      company
                      company-ghc
                      csv-mode
@@ -20,6 +21,7 @@
                      etags-table
                      flycheck
                      flycheck-haskell
+                     flycheck-rust
                      ghc
                      haskell-mode
                      hindent
@@ -33,9 +35,11 @@
                      psci
                      purescript-mode
                      python-mode
+                     racer
                      rainbow-delimiters
                      rainbow-mode
                      repl-toggle
+                     rust-mode
                      sws-mode
                      use-package
                      virtualenv
@@ -52,7 +56,9 @@
 
 ;; Misc config
 (add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
-(add-to-list 'load-path "~/.emacs.d/dotfiles")
+(add-to-list 'load-path
+             (expand-file-name "dotfiles" user-emacs-directory)
+             )
 (require 'misc-config)
 (with-library 'proxy-config)
 
@@ -106,6 +112,9 @@
 
 ;; Python
 (require 'python-mode)
+
+;; Rust
+(require 'rust-config)
 
 ;; rainbow-mode for CSS
 (require 'rainbow-mode)
