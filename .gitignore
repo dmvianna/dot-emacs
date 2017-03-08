@@ -7,3 +7,12 @@ request/
 site-lisp/
 ac-comphist.dat
 *~
+places
+\.recentf
+\.smex-items
+ido.last
+projectile-bookmarks.eld
+projectile.cache
+auto-save-list
+backups
+eshell
