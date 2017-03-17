@@ -22,10 +22,11 @@
              (setq racer-rust-src-path
                    (concat
                     (getenv "HOME")
-                    "/.rust-dev/rust/src"))
+                    "/.rustup/toolchains/nightly-x86_64-apple-darwin"
+                    "/lib/rustlib/src/rust/src/"))
              (local-set-key (kbd "TAB") #'company-indent-or-complete-common)
              (electric-pair-mode 1)
              ))
 
 (provide 'rust-config)
-             
+
