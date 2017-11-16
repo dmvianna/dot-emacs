@@ -56,4 +56,9 @@
 
 (provide 'misc-config)
 
+;;; change capitalisation
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+
 ;;; misc-config.el ends here

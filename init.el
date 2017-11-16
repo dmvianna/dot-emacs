@@ -181,6 +181,7 @@
     ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
  '(haskell-process-suggest-haskell-docs-imports t)
  '(haskell-process-type (quote stack-ghci))
+ '(haskell-stylish-on-save t)
  '(hindent-reformat-buffer t)
  '(hindent-style "johan-tibell")
  '(package-selected-packages
@@ -192,5 +193,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
