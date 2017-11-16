@@ -60,6 +60,10 @@
      "Data.Ord")))
 ;; (custom-set-variables '(haskell-tags-on-save t))
 
+;;;; stylish-haskell
+(custom-set-variables
+ '(haskell-stylish-on-save t))
+
 (provide 'haskell-daniel-config)
 
 ;;; haskell-daniel-config.el ends here
