@@ -1,5 +1,9 @@
-;;; Emacs ---  This is my configuration file.
-;;; Commentary:
+;;; init.el --- user init file -*- no-byte-compile: t -*-
+;;; Commentary: This file mostly contains two things:
+;;; 1. A list of required packages to be downloaded if missing
+;;; and the settings for the 'package library
+;;; 2. requires for other files that orchestrate functionality
+;;; at another layer (the dotfile directory)
 ;;; Code:
 
 ;; Package
@@ -13,6 +17,7 @@
 
 (setq package-list '(solarized-theme
                      auto-complete
+                     auto-compile
                      cargo
                      company
                      company-ghc
