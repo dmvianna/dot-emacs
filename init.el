@@ -24,6 +24,7 @@
                      csv-mode
                      elm-mode
                      etags-table
+                     exec-path-from-shell
                      flycheck
                      flycheck-haskell
                      flycheck-rust

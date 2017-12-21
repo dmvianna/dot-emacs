@@ -67,5 +67,7 @@
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
 
+;; exec path from shell
+(exec-path-from-shell-initialize)
 
 ;;; misc-config.el ends here
