@@ -31,9 +31,9 @@
 ;;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
 (setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `(("." . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `(("." ,temporary-file-directory t)))
 (setq auto-save-list-file-prefix
       temporary-file-directory)
 
