@@ -18,6 +18,7 @@
 (require 'ido) ;; Inbuilt - Finding files made easier
 (ido-mode t)
 (global-auto-revert-mode 1) ;; Reload files that have been changed
+(global-visual-line-mode t) ;; line wrap by default
 
 ;;; Tagging
 ;; (require 'etags-table)
