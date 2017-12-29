@@ -54,8 +54,6 @@
   `(when (require ,symbol nil t)
      ,@body))
 
-(provide 'misc-config)
-
 ;;; change capitalisation
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -70,4 +68,12 @@
 ;; exec path from shell
 (exec-path-from-shell-initialize)
 
+;; org-mode
+(global-set-key "\C-ca" 'org-agenda)
+
+;; open file in browser
+(global-set-key "\C-c\C-zv" 'browse-url-of-file)
+
+(provide 'misc-config)
+  
 ;;; misc-config.el ends here
