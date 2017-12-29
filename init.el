@@ -190,6 +190,7 @@
  '(haskell-stylish-on-save t)
  '(hindent-reformat-buffer t)
  '(hindent-style "johan-tibell")
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
     (jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
