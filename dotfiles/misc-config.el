@@ -32,11 +32,11 @@
 ;;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
 (setq backup-directory-alist
-      `(("." . ,temporary-file-directory)))
+      `(("." . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms
-      `(("." ,temporary-file-directory t)))
+      `(("." ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix
-      temporary-file-directory)
+      emacs-tmp-dir)
 
 ;;; Set tab width
 (setq-default indent-tabs-mode nil)
