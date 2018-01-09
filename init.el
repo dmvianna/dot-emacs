@@ -20,17 +20,18 @@
                      auto-compile
                      cargo
                      company
-                     company-ghc
+                     ;; company-ghc
                      csv-mode
                      elm-mode
                      etags-table
                      exec-path-from-shell
                      flycheck
-                     flycheck-haskell
+                     ;; flycheck-haskell
                      flycheck-rust
-                     ghc
+                     ;; ghc
+                     intero
                      haskell-mode
-                     hindent
+                     ;; hindent
                      js2-mode
                      json-mode
                      nvm
@@ -80,8 +81,9 @@
 (require 'magit)
 
 ;; Haskell
-(require 'haskell-daniel-config)
-;; (load-library "haskell-daniel-config.el")
+(require 'haskell-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
+;; (require 'haskell-daniel-config)
 
 ;; JavaScript
 (require 'javascript-config)
