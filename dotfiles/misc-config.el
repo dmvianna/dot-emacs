@@ -30,7 +30,10 @@
 (global-set-key (kbd "C-e") 'eshell)
 
 ;;; Save all tempfiles in $TMPDIR/emacs$UID/
-(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+(defconst emacs-tmp-dir
+  (expand-file-name
+   (format "emacs%d" (user-uid))
+           temporary-file-directory))
 (setq backup-directory-alist
       `(("." . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms
