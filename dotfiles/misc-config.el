@@ -29,13 +29,17 @@
 (windmove-default-keybindings 'shift)
 (global-set-key (kbd "C-e") 'eshell)
 
-;;; Save all tempfiles in $TMPDIR/emacs$UID/
+;;; Save all tempfiles in $TMPDIR/emacs-$UID/
 (defconst emacs-tmp-dir
-  (expand-file-name
-   (format "emacs%d" (user-uid))
-           temporary-file-directory))
+   (format "%s/%s%s/" temporary-file-directory "emacs-" (user-uid)))
+
+(unless (file-directory-p emacs-tmp-dir)
+  (make-directory emacs-tmp-dir))
+
 (setq backup-directory-alist
       `(("." . ,emacs-tmp-dir)))
+(setq undo-tree-history-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms
       `(("." ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix
