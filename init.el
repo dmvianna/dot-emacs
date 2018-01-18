@@ -32,6 +32,7 @@
                      intero
                      haskell-mode
                      ;; hindent
+                     hyde
                      js2-mode
                      json-mode
                      nvm
@@ -96,6 +97,9 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist
              '("\\.md$" . markdown-mode))
+
+;; Jekyll
+(require 'hyde)
 
 ;; Nix
 (require 'nix-mode)
