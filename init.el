@@ -23,7 +23,7 @@
                      ;; company-ghc
                      csv-mode
                      elm-mode
-                     etags-table
+                     ;; etags-table
                      exec-path-from-shell
                      flycheck
                      ;; flycheck-haskell
