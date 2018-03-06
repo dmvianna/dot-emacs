@@ -39,6 +39,7 @@
                      magit
                      markdown-mode
                      nix-mode
+                     pickle
                      psc-ide
                      psci
                      purescript-mode
@@ -80,6 +81,10 @@
 
 ;; Git
 (require 'magit)
+
+;; Gherkin
+(require 'pickle)
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Haskell
 (require 'haskell-mode)
@@ -149,17 +154,15 @@
  ;; If there is more than one, they won't work right.
  '(company-ghc-show-info t)
  '(haskell-complete-module-preferred
-   (quote
-    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+   '("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord"))
  '(haskell-process-suggest-haskell-docs-imports t)
- '(haskell-process-type (quote stack-ghci))
+ '(haskell-process-type 'stack-ghci)
  '(haskell-stylish-on-save t)
  '(hindent-reformat-buffer t)
  '(hindent-style "johan-tibell")
  '(org-agenda-files nil)
  '(package-selected-packages
-   (quote
-    (jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+   '(racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
