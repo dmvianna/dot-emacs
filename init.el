@@ -88,7 +88,12 @@
 
 ;; Haskell
 (require 'haskell-mode)
-(add-hook 'haskell-mode-hook 'intero-mode)
+; (add-hook 'haskell-mode-hook 'intero-mode)
+(use-package intero
+  :load-path "~/code/intero/elisp"
+  :ensure t)
+(setq intero-blacklist '("~/.xmonad/"))
+(add-hook 'haskell-mode-hook 'intero-mode-blacklist)
 ;; (require 'haskell-daniel-config)
 
 ;; JavaScript
@@ -154,15 +159,17 @@
  ;; If there is more than one, they won't work right.
  '(company-ghc-show-info t)
  '(haskell-complete-module-preferred
-   '("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord"))
+   (quote
+    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
  '(haskell-process-suggest-haskell-docs-imports t)
- '(haskell-process-type 'stack-ghci)
+ '(haskell-process-type (quote stack-ghci))
  '(haskell-stylish-on-save t)
  '(hindent-reformat-buffer t)
  '(hindent-style "johan-tibell")
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
+   (quote
+    (racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
