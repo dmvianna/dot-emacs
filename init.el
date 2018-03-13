@@ -92,7 +92,7 @@
 (use-package intero
   :load-path "~/code/intero/elisp"
   :ensure t)
-(setq intero-blacklist '("~/.xmonad/"))
+(setq intero-blacklist '("~/.xmonad/" "~/.config/taffybar/"))
 (add-hook 'haskell-mode-hook 'intero-mode-blacklist)
 ;; (require 'haskell-daniel-config)
 
