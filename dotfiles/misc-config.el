@@ -85,5 +85,14 @@
 (global-set-key "\C-c\C-zv" 'browse-url-of-file)
 
 (provide 'misc-config)
-  
+
+;; mouse wheel in iterm2 terminal
+
+(require 'mwheel)
+(require 'mouse)
+(xterm-mouse-mode t)
+(mouse-wheel-mode t)
+(global-set-key [mouse-4] 'next-line)
+(global-set-key [mouse-5] 'previous-line)
+
 ;;; misc-config.el ends here
