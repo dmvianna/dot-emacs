@@ -38,7 +38,11 @@
                      nvm
                      magit
                      markdown-mode
+                     nix-buffer
                      nix-mode
+                     nixos-options
+                     company-nixos-options
+                     nix-sandbox
                      pickle
                      psc-ide
                      psci
@@ -113,6 +117,11 @@
 
 ;; Nix
 (require 'nix-mode)
+(add-to-list 'company-backends 'company-nixos-options)
+(setq flycheck-command-wrapper-function
+        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
+      flycheck-executable-find
+        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
 
 ;; PureScript
 (load-library "purescript-config.el")
