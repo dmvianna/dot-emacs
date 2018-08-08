@@ -87,6 +87,9 @@
 ;; Git
 (require 'magit)
 
+;; sql
+(require 'sql-config)
+
 ;; Gherkin
 (require 'pickle)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
