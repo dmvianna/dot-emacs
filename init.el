@@ -1,5 +1,8 @@
-;;; init.el --- user init file -*- no-byte-compile: t -*-
-;;; Commentary: This file mostly contains two things:
+;;; init.el --- Summary
+;;; user init file
+;;; -*- no-byte-compile: t -*-
+;;; Commentary:
+;;; This file mostly contains two things:
 ;;; 1. A list of required packages to be downloaded if missing
 ;;; and the settings for the 'package library
 ;;; 2. requires for other files that orchestrate functionality
@@ -22,6 +25,7 @@
                      company
                      ;; company-ghc
                      csv-mode
+                     dante
                      elm-mode
                      elpy
                      ;; etags-table
@@ -30,7 +34,7 @@
                      ;; flycheck-haskell
                      flycheck-rust
                      ;; ghc
-                     intero
+                     ;; intero
                      haskell-mode
                      ;; hindent
                      hyde
@@ -81,6 +85,9 @@
              :ensure t
              :init (global-flycheck-mode))
 
+;; Company -- text completion
+(require 'company)
+
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
 
@@ -94,15 +101,18 @@
 (require 'pickle)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
+;; Nix
+(require 'nix-mode)
+(add-to-list 'company-backends 'company-nixos-options)
+(setq flycheck-command-wrapper-function
+        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
+      flycheck-executable-find
+        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
+(add-to-list 'auto-mode-alist '("\\.nix" . nix-mode))
+
+
 ;; Haskell
-(require 'haskell-mode)
-; (add-hook 'haskell-mode-hook 'intero-mode)
-(use-package intero
-  :load-path "~/code/intero/elisp"
-  :ensure t)
-(setq intero-blacklist '("~/.xmonad/" "~/.config/taffybar/"))
-(add-hook 'haskell-mode-hook 'intero-mode-blacklist)
-;; (require 'haskell-daniel-config)
+(require 'haskell-daniel-config)
 
 ;; JavaScript
 (require 'javascript-config)
@@ -118,14 +128,6 @@
 
 ;; Jekyll
 (require 'hyde)
-
-;; Nix
-(require 'nix-mode)
-(add-to-list 'company-backends 'company-nixos-options)
-(setq flycheck-command-wrapper-function
-        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
-      flycheck-executable-find
-        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
 
 ;; PureScript
 (load-library "purescript-config.el")
