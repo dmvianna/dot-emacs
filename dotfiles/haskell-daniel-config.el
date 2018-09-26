@@ -22,6 +22,8 @@
              )
           )
 
+;;(setq dante-repl-command-line '("cabal" "new-repl" dante-target))
+
 ;;;; stylish-haskell
 (custom-set-variables
  '(haskell-stylish-on-save t))
