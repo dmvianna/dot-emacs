@@ -29,6 +29,8 @@
                      elm-mode
                      elpy
                      ;; etags-table
+                     ess
+                     ess-R-data-view
                      exec-path-from-shell
                      flycheck
                      ;; flycheck-haskell
@@ -172,6 +174,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(comint-prompt-read-only t)
+ '(comint-use-prompt-regexp t)
  '(company-ghc-show-info t)
  '(haskell-complete-module-preferred
    (quote
@@ -184,7 +188,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (ess-R-data-view ess confluence elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
