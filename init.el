@@ -87,13 +87,13 @@
 (setq-default flycheck-temp-prefix ".flycheck")
 
 ;; Git
-(use-package 'magit)
+(use-package magit)
 
 ;; sql
-(use-package 'sql-config)
+(with-library 'sql-config)
 
 ;; Gherkin
-(use-package 'pickle)
+(use-package pickle)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Nix
