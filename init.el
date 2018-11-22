@@ -97,14 +97,7 @@
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Nix
-(use-package nix-mode
-  :ensure t
-  :commands nix-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
-  (add-to-list 'auto-mode-alist '("\\.nix.in\\'" . nix-mode))
-  :config
-  (add-hook 'nix-mode-hook #'rainbow-delimiters-mode))
+(require 'nix-daniel-config)
 
 ;; Haskell
 (require 'haskell-daniel-config)
@@ -179,7 +172,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
