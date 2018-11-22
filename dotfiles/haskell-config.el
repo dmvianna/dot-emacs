@@ -28,7 +28,7 @@
 (custom-set-variables
  '(haskell-stylish-on-save t))
 
-(provide 'haskell-daniel-config)
+(provide 'haskell-config)
 
 ;;; haskell-daniel-config.el ends here
 

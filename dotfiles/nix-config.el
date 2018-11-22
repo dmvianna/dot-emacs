@@ -23,4 +23,4 @@
       flycheck-executable-find
         (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
 
-(provide 'nix-daniel-config)
+(provide 'nix-config)

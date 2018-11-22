@@ -97,10 +97,10 @@
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Nix
-(require 'nix-daniel-config)
+(require 'nix-config)
 
 ;; Haskell
-(require 'haskell-daniel-config)
+(require 'haskell-config)
 
 ;; JavaScript
 (require 'javascript-config)
