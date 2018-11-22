@@ -23,22 +23,16 @@
                      auto-compile
                      cargo
                      company
-                     ;; company-ghc
                      csv-mode
                      dante
                      elm-mode
                      elpy
-                     ;; etags-table
                      ess
                      ess-R-data-view
                      exec-path-from-shell
                      flycheck
-                     ;; flycheck-haskell
                      flycheck-rust
-                     ;; ghc
-                     ;; intero
                      haskell-mode
-                     ;; hindent
                      hyde
                      js2-mode
                      json-mode
@@ -88,7 +82,8 @@
              :init (global-flycheck-mode))
 
 ;; Company -- text completion
-(require 'company)
+(use-package company
+  :ensure t)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
@@ -97,21 +92,21 @@
 (require 'magit)
 
 ;; sql
-(require 'sql-config)
+;;(require 'sql-config)
 
 ;; Gherkin
 (require 'pickle)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Nix
-(require 'nix-mode)
-(add-to-list 'company-backends 'company-nixos-options)
-(setq flycheck-command-wrapper-function
-        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
-      flycheck-executable-find
-        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
-(add-to-list 'auto-mode-alist '("\\.nix" . nix-mode))
-
+(use-package nix-mode
+  :ensure t
+  :commands nix-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
+  (add-to-list 'auto-mode-alist '("\\.nix.in\\'" . nix-mode))
+  :config
+  (add-hook 'nix-mode-hook #'rainbow-delimiters-mode))
 
 ;; Haskell
 (require 'haskell-daniel-config)
