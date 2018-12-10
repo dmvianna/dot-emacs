@@ -29,6 +29,7 @@
                      elpy
                      exec-path-from-shell
                      flycheck
+                     flycheck-mypy
                      flycheck-rust
                      haskell-mode
                      hyde
@@ -121,19 +122,7 @@
 (load-library "purescript-config.el")
 
 ;; Python
-(elpy-enable)
-(flycheck-define-checker
-    python-mypy ""
-    :command ("mypy"
-              "--ignore-missing-imports" ;; "--fast-parser"
-              "--python-version" "3.7"
-              source-original)
-    :error-patterns
-    ((error line-start (file-name) ":" line ": error:" (message) line-end))
-    :modes python-mode)
-
-(add-to-list 'flycheck-checkers 'python-mypy t)
-;;(flycheck-add-next-checker 'python-pylint 'python-mypy t)
+(require 'python-config)
 
 ;; Rust
 (require 'rust-config)
@@ -172,6 +161,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(comint-prompt-read-only t)
+ '(comint-use-prompt-regexp t)
  '(company-ghc-show-info t)
  '(haskell-complete-module-preferred
    (quote
@@ -184,7 +175,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
