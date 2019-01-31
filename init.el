@@ -139,6 +139,9 @@
 (add-to-list 'auto-mode-alist '("\\.scss'" . scss-mode))
 (setq scss-compile-at-save nil)
 
+;; Smalltalk
+(require 'gnu-smalltalk-mode)
+
 ;; ;; Speedbar
 ;; (require 'speedbar)
 ;; (speedbar-add-supported-extension ".hs")
@@ -175,7 +178,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
