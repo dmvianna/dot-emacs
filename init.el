@@ -100,6 +100,9 @@
 ;; Nix
 (require 'nix-config)
 
+;; Elm
+(setq elm-format-on-save t)
+
 ;; Haskell
 (require 'haskell-config)
 
