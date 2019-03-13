@@ -19,12 +19,14 @@
 (package-initialize)
 
 (setq package-list '(solarized-theme
+                     alchemist
                      auto-complete
                      auto-compile
                      cargo
                      company
                      csv-mode
                      dante
+                     elixir-mode
                      elm-mode
                      elpy
                      exec-path-from-shell
@@ -99,6 +101,10 @@
 
 ;; Nix
 (require 'nix-config)
+
+;; Elixir
+(require 'elixir-mode)
+(add-to-list 'elixir-mode-hook 'alchemist-mode)
 
 ;; Elm
 (setq elm-format-on-save t)
