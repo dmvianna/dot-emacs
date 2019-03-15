@@ -135,6 +135,7 @@
 
 ;; Rust
 (require 'rust-config)
+(setq rust-format-on-save t)
 
 ;; rainbow-mode for CSS
 (require 'rainbow-mode)
