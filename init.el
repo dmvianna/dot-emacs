@@ -134,7 +134,7 @@
 (require 'python-config)
 
 ;; Rust
-(require 'rust-config)
+;; (require 'rust-config)
 (setq rust-format-on-save t)
 
 ;; rainbow-mode for CSS
