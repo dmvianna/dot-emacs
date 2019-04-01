@@ -33,6 +33,13 @@
                      flycheck
                      flycheck-mypy
                      flycheck-rust
+                     ;; racket-lang
+                     ac-geiser
+                     geiser
+                     racket-mode
+                     scheme-complete
+                     scribble-mode
+                     ;; / racket-lang
                      haskell-mode
                      hyde
                      js2-mode
@@ -132,6 +139,9 @@
 
 ;; Python
 (require 'python-config)
+
+;; Racket
+(use-package geiser-mode)
 
 ;; Rust
 ;; (require 'rust-config)
