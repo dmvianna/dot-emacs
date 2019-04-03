@@ -26,6 +26,7 @@
                      company
                      csv-mode
                      dante
+                     dhall-mode
                      elixir-mode
                      elm-mode
                      elpy
@@ -108,6 +109,9 @@
 
 ;; Nix
 (require 'nix-config)
+
+;; Dhall
+(setq dhall-format-command nil)
 
 ;; Elixir
 (require 'elixir-mode)
