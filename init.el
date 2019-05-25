@@ -53,6 +53,7 @@
                      nixos-options
                      company-nixos-options
                      nix-sandbox
+                     paredit
                      pickle
                      psc-ide
                      psci
@@ -163,6 +164,15 @@
 ;; rainbow-delimiters for elisp
 (require 'rainbow-delimiters)
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'geiser-mode-hook #'rainbow-delimiters-mode)
+
+;; paredit to match lisp parentheses
+(autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'geiser-mode-hook 'enable-paredit-mode)
 
 ;; SCSS
 (autoload 'scss-mode "scss-mode")
