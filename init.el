@@ -109,41 +109,41 @@
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
 
 ;; Nix
-(require 'nix-config)
+(use-package nix-config)
 
 ;; Dhall
 (setq dhall-format-command nil)
 
 ;; Elixir
-(require 'elixir-mode)
+(use-package elixir-mode)
 (add-to-list 'elixir-mode-hook 'alchemist-mode)
 
 ;; Elm
 (setq elm-format-on-save t)
 
 ;; Haskell
-(require 'haskell-config)
+(use-package haskell-config)
 
 ;; JavaScript
-(require 'javascript-config)
+(use-package javascript-config)
 
 ;; JSON
-(require 'json-mode)
+(use-package json-mode)
 (add-to-list 'auto-mode-alist '("\\.json\\'\\|\\.jshintrc\\'" . json-mode))
 
 ;; Markdown
-(require 'markdown-mode)
+(use-package markdown-mode)
 (add-to-list 'auto-mode-alist
              '("\\.md$" . markdown-mode))
 
 ;; Jekyll
-(require 'hyde)
+(use-package hyde)
 
 ;; PureScript
 (load-library "purescript-config.el")
 
 ;; Python
-(require 'python-config)
+(use-package python-config)
 
 ;; Racket
 (use-package geiser-mode)
@@ -154,15 +154,15 @@
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'racer-mode-hook #'company-mode)
-(require 'rust-mode)
+(use-package rust-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
 ;; rainbow-mode for CSS
-(require 'rainbow-mode)
+(use-package rainbow-mode)
 
 ;; rainbow-delimiters for elisp
-(require 'rainbow-delimiters)
+(use-package rainbow-delimiters)
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode)
 
@@ -180,7 +180,7 @@
 (setq scss-compile-at-save nil)
 
 ;; Smalltalk
-(require 'gnu-smalltalk-mode)
+(use-package gnu-smalltalk-mode)
 
 ;; ;; Speedbar
 ;; (require 'speedbar)
