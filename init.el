@@ -141,7 +141,7 @@
 (use-package hyde)
 
 ;; PureScript
-(load-library "purescript-config.el")
+(use-package purescript-config)
 
 ;; Python
 (use-package python-config)
