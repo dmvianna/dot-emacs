@@ -112,6 +112,9 @@
 ;; Nix
 (use-package nix-config)
 
+;; Agda
+(use-package agda-config)
+
 ;; Dhall
 (setq dhall-format-command nil)
 
