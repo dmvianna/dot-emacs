@@ -27,6 +27,7 @@
                      csv-mode
                      dante
                      dhall-mode
+                     dockerfile-mode
                      elixir-mode
                      elm-mode
                      elpy
@@ -143,6 +144,11 @@
 ;; Jekyll
 (use-package hyde)
 
+;; Jupyter
+(use-package ein)
+(use-package ein-notebook)
+(use-package ein-subpackages)
+
 ;; PureScript
 (use-package purescript-config)
 
@@ -222,7 +228,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (dockerfile-mode ein htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
