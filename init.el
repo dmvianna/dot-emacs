@@ -145,9 +145,9 @@
 (use-package hyde)
 
 ;; Jupyter
-(use-package ein)
-(use-package ein-notebook)
-(use-package ein-subpackages)
+;; (use-package ein)
+;; (use-package ein-notebook)
+;; (use-package ein-subpackages)
 
 ;; PureScript
 (use-package purescript-config)
@@ -235,3 +235,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
