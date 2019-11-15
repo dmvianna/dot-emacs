@@ -27,7 +27,7 @@
 
 (require 'windmove)
 (windmove-default-keybindings 'shift)
-(global-set-key (kbd "C-e") 'eshell)
+;; (global-set-key (kbd "C-e") 'eshell)
 
 ;;; Save all tempfiles in $TMPDIR/emacs-$UID/
 (defconst emacs-tmp-dir
