@@ -20,6 +20,7 @@
 
 (setq package-list '(solarized-theme
                      alchemist
+		                 all-the-icons
                      auto-complete
                      auto-compile
                      cargo
@@ -47,9 +48,11 @@
                      hyde
                      js2-mode
                      json-mode
+                     neotree
                      nvm
                      magit
                      markdown-mode
+                     memoize
                      nix-buffer
                      nix-mode
                      nixos-options
