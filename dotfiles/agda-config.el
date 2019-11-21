@@ -16,11 +16,15 @@
        ("\\.lagda.md\\'" . agda2-mode))
      auto-mode-alist))
 
-;; default to mononoki
-(set-face-attribute 'default nil
-		    :family "mononoki"
-		    :height 120
-		    :weight 'normal
-		    :width  'normal)
+(add-hook 'agda-mode-hook
+          (lambda ()
+            ;; default to mononoki
+            (set-face-attribute 'default nil
+		                            :family "mononoki"
+		                            :height 120
+		                            :weight 'normal
+		                            :width  'normal)
+            (set-frame-parameter (window-frame) 'background-mode 'light)
+            (enable-theme 'solarized)))
 
 (provide 'agda-config)
