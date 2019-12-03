@@ -100,11 +100,7 @@
 (global-set-key [(meta up)] 'elpy-nav-move-line-or-region-up)
 
 ;; theme
-
-(require 'solarized)
-(deftheme solarized-dark "The dark variant of the Solarized colour theme")
-;; (create-solarized-theme 'dark 'solarized-dark)
-(provide-theme 'solarized-dark)
+(load-theme 'solarized-dark t)
 
 ;; directory tree view
 (require 'neotree)
