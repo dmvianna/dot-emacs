@@ -68,6 +68,8 @@
                      racer
                      rainbow-delimiters
                      rainbow-mode
+                     restclient
+                     company-restclient
                      repl-toggle
                      rust-mode
                      sws-mode
