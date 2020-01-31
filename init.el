@@ -164,7 +164,11 @@
 (use-package python-config)
 
 ;; Racket
-(use-package geiser-mode)
+(use-package racket-mode)
+(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
+(defun turn-on-paredit () (paredit-mode t))
+(add-hook 'racket-mode-hook 'turn-on-paredit)
+;; (use-package geiser-mode)
 
 ;; Rust
 ;; (require 'rust-config)
