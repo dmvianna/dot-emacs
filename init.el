@@ -72,6 +72,7 @@
                      company-restclient
                      repl-toggle
                      rust-mode
+                     sql-indent
                      sws-mode
                      smartparens
                      use-package
@@ -111,6 +112,9 @@
 (use-package magit)
 
 ;; sql
+
+;;; indent sql emacs-style
+(add-hook 'sql-mode-hook 'sqlind-minor-mode)
 (with-library 'sql-config)
 
 ;; Gherkin
@@ -249,7 +253,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (php-mode dockerfile-mode ein htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
+    (sql-indent php-mode dockerfile-mode ein htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
