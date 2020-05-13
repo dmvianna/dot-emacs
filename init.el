@@ -64,6 +64,8 @@
                      psc-ide
                      psci
                      purescript-mode
+                     pyenv-mode
+                     ;; pyenv-mode-auto
                      python-mode
                      racer
                      rainbow-delimiters

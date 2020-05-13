@@ -16,8 +16,10 @@
 ;;;
 ;;; Code:
 
-(require 'flycheck-mypy)
-
+(use-package pyenv-mode-auto)
+(pyenv-mode)
+(use-package flycheck-mypy)
+(setq elpy-rpc-python-command "~/.pyenv/shims/python3")
 (elpy-enable)
 
 (provide 'python-config)
