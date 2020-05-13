@@ -19,7 +19,13 @@
 (use-package pyenv-mode-auto)
 (pyenv-mode)
 (use-package flycheck-mypy)
-(setq elpy-rpc-python-command "~/.pyenv/shims/python3")
+(if (eq system-type 'darwin)
+    (setq elpy-rpc-python-command "~/.pyenv/shims/python3")
+  ;; else do nothing
+  )
+(use-package python-black
+ ;; :demand t
+ :after python)
 (elpy-enable)
 
 (provide 'python-config)
