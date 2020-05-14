@@ -65,7 +65,7 @@
                      psci
                      purescript-mode
                      pyenv-mode
-                     ;; pyenv-mode-auto
+                     pyenv-mode-auto
                      python-black
                      python-mode
                      racer
