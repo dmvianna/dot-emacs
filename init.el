@@ -29,6 +29,7 @@
                      dante
                      dhall-mode
                      dockerfile-mode
+                     ein
                      elixir-mode
                      elm-mode
                      elpy
