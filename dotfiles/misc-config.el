@@ -56,9 +56,6 @@
 (mouse-wheel-mode t)
 (xterm-mouse-mode t)
 
-;;; use-package
-(require 'use-package)
-
 ;;; Only load if library present
 (defmacro with-library (symbol &rest body)
   `(when (require ,symbol nil t)
@@ -68,23 +65,21 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;;; auto-byte-compile
-(setq load-prefer-newer t)
-(package-initialize)
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
+;; ;;; auto-byte-compile
+;; (setq load-prefer-newer t)
+;; (package-initialize)
+;; (require 'auto-compile)
+;; (auto-compile-on-load-mode)
+;; (auto-compile-on-save-mode)
 
-;; exec path from shell
-(exec-path-from-shell-initialize)
+;; ;; exec path from shell
+;; (exec-path-from-shell-initialize)
 
 ;; org-mode
 (global-set-key "\C-ca" 'org-agenda)
 
 ;; open file in browser
 (global-set-key "\C-c\C-zv" 'browse-url-of-file)
-
-(provide 'misc-config)
 
 ;; mouse wheel in iterm2 terminal
 
@@ -99,19 +94,24 @@
 (global-set-key [(meta down)] 'elpy-nav-move-line-or-region-down)
 (global-set-key [(meta up)] 'elpy-nav-move-line-or-region-up)
 
-;; theme
-(load-theme 'solarized-dark t)
+;; ;; theme
+;; (load-theme 'solarized-dark t)
 
-;; directory tree view
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+;; ;; directory tree view
+;; (require 'neotree)
+;; (global-set-key [f8] 'neotree-toggle)
+;; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-;; Helm; incremental completions
-(helm-mode t)
-(add-to-list 'helm-completing-read-handlers-alist
-             '(dired . nil))
-;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; ;; Helm; incremental completions
+;; (helm-mode t)
+;; (add-to-list 'helm-completing-read-handlers-alist
+;;              '(dired . nil))
+;; ;; (global-set-key (kbd "M-x") 'helm-M-x)
+
+;; ;;; use-package
+;; (require 'use-package)
 
 
+
+(provide 'misc-config)
 ;;; misc-config.el ends here
