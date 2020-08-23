@@ -133,8 +133,8 @@
 (use-package nix-config)
 
 ;; Agda
-(if (executable-find "agda")
-    (use-package agda-config))
+;; (if (executable-find "agda")
+;;     (use-package agda-config))
 
 ;; Dhall
 (setq dhall-format-command nil)
