@@ -14,13 +14,13 @@
 (add-to-list 'package-archives
              ;; '("marmalade" . "http://marmalade-repo.org/packages/")
              ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
-             '("melpa" . "http://melpa.org/packages/")
+             '("melpa" . "https://melpa.org/packages/")
              t)
 (package-initialize)
 
 (setq package-list '(solarized-theme
                      alchemist
-		                 all-the-icons
+		     all-the-icons
                      auto-complete
                      auto-compile
                      cargo
