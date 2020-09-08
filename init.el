@@ -35,6 +35,7 @@
                      elm-mode
                      elpy
                      envrc
+                     ess
                      exec-path-from-shell
                      flycheck
                      flycheck-mypy
@@ -215,6 +216,9 @@
 
 ;; CSS
 (setq css-indent-offset 2)
+
+;; R
+(load "ess-autoloads")
 
 ;; Smalltalk
 (use-package gnu-smalltalk-mode)
