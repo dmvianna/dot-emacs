@@ -58,6 +58,7 @@
                      nvm
                      magit
                      markdown-mode
+                     markdown-preview-mode
                      memoize
                      nix-buffer
                      nix-mode
