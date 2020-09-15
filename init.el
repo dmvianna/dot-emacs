@@ -68,6 +68,9 @@
                      paredit
                      php-mode
                      pickle
+                     polymode
+                     poly-R
+                     poly-rst
                      psc-ide
                      psci
                      purescript-mode
