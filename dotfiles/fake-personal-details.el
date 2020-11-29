@@ -9,3 +9,5 @@
 
 (setq user-full-name "The Gruffalo"
       user-mail-address "gruffalo@gruffalo.gr")
+
+(provide 'personal-details)
