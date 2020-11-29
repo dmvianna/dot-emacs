@@ -35,9 +35,6 @@
       mu4e-sent-messages-behavior 'delete
       mu4e-view-show-images t
       smtpmail-debug-info t
-
-      mu4e-sent-folder (concat (getenv "HOME") "/Maildir/gmail/Sent Messages")
-      mu4e-drafts-folder (concat (getenv "HOME") "/Maildir/gmail/Drafts")
       )
 
 (provide 'mail-config)
