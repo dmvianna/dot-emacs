@@ -17,7 +17,7 @@
 (require 'smtpmail)
 
 (auth-source-pass-enable)
-(setq mu4e-get-mail-command "getmail"
+(setq mu4e-get-mail-command "mbsync -a"
       mu4e-update-interval 300
       mu4e-attachment-dir "~/Downloads"
 
