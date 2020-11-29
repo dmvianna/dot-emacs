@@ -12,9 +12,29 @@
 
 (setq load-path (append load-path '((getenv "MU4E"))))
 (require 'mu4e)
+(require 'org-mu4e)
+(require 'mu4e-contrib)
+(require 'smtpmail)
 
+(auth-source-pass-enable)
 (setq mu4e-get-mail-command "getmail"
       mu4e-update-interval 300
-      mu4e-attachment-dir "~/Downloads")
+      mu4e-attachment-dir "~/Downloads"
+
+      message-send-mail-function 'smtpmail-send-it
+      smtpmail-stream-type 'starttls
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      auth-sources '(password-store)
+      auth-source-do-cache nil
+      auth-source-debug t
+      message-kill-buffer-on-exit t
+
+      mu4e-compose-dont-reply-to-self t
+      mu4e-sent-messages-behavior 'delete
+      mu4e-view-show-images t
+      smtpmail-debug-info t
+      )
 
 (provide 'mail-config)
