@@ -102,6 +102,9 @@
 ;; theme
 (load-theme 'solarized-dark t)
 
+;; because in Big Sur this is set to /
+(setq default-directory (getenv "HOME"))
+
 ;; directory tree view
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
