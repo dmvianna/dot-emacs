@@ -110,11 +110,12 @@
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-;; Helm; incremental completions
-(helm-mode t)
-(add-to-list 'helm-completing-read-handlers-alist
-             '(dired . nil))
-;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; incremental completions
+(require 'consult)
+(require 'selectrum)
+(selectrum-mode)
+(setq completion-styles '(substring))
+
 
 
 ;;; misc-config.el ends here
