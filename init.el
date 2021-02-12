@@ -32,6 +32,7 @@
                      dash-at-point
                      dhall-mode
                      dockerfile-mode
+                     docker-compose-mode
                      ein
                      elixir-mode
                      elm-mode
