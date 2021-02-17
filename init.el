@@ -16,7 +16,7 @@
              ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
              '("melpa" . "https://melpa.org/packages/")
              t)
-(package-initialize)
+;; (package-initialize)
 
 (setq package-list '(solarized-theme
                      alchemist

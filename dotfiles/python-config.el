@@ -17,8 +17,8 @@
 ;;; Code:
 
 
-(pyenv-mode)
-(use-package pyenv-mode-auto)
+;; (pyenv-mode)
+;; (use-package pyenv-mode-auto)
 (use-package flycheck-mypy)
 (if (eq system-type 'darwin)
     (setq elpy-rpc-python-command "~/.pyenv/shims/python3")
