@@ -123,6 +123,9 @@
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
 
+;; enable lsp-mode
+(require 'lsp-config)
+
 ;; Git
 (use-package magit)
 
