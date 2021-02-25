@@ -16,7 +16,6 @@
              ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
              '("melpa" . "https://melpa.org/packages/")
              t)
-(package-initialize)
 
 (setq package-list '(solarized-theme
                      alchemist
@@ -265,22 +264,19 @@
  '(comint-use-prompt-regexp t)
  '(company-ghc-show-info t)
  '(custom-safe-themes
-   (quote
-    ("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
+   '("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default))
  '(ein:output-area-inlined-images t)
  '(haskell-complete-module-preferred
-   (quote
-    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+   '("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord"))
  '(haskell-process-suggest-haskell-docs-imports t)
- '(haskell-process-type (quote stack-ghci))
+ '(haskell-process-type 'stack-ghci)
  '(haskell-stylish-on-save t)
  '(hindent-reformat-buffer t)
  '(hindent-style "johan-tibell")
  '(org-agenda-files nil)
  '(package-selected-packages
-   (quote
-    (envrc dash-at-point python-black sql-indent php-mode dockerfile-mode ein htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete)))
- '(send-mail-function (quote smtpmail-send-it)))
+   '(envrc dash-at-point python-black sql-indent php-mode dockerfile-mode ein htmlize paredit flycheck flycheck-mypy helm elpy racer hyde intero flycheck-rust exec-path-from-shell cargo auto-compile pickle jade-mode yaml-mode writeroom-mode web-mode virtualenv use-package sws-mode solarized-theme repl-toggle rainbow-mode rainbow-delimiters python-mode psci psc-ide nvm nix-mode markdown-mode magit json-mode js2-mode hindent flycheck-haskell etags-table elm-mode csv-mode company-ghc auto-complete))
+ '(send-mail-function 'smtpmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
