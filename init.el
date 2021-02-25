@@ -17,88 +17,88 @@
              '("melpa" . "https://melpa.org/packages/")
              t)
 
-(setq package-list '(solarized-theme
-                     alchemist
-		     all-the-icons
-                     auto-complete
-                     auto-compile
-                     cargo
-                     company
-                     csv-mode
-                     dante
-                     dash-at-point
-                     dhall-mode
-                     dockerfile-mode
-                     ein
-                     elixir-mode
-                     elm-mode
-                     elpy
-                     envrc
-                     ess
-                     exec-path-from-shell
-                     flycheck
-                     flycheck-mypy
-                     flycheck-rust
-                     ;; racket-lang
-                     ac-geiser
-                     geiser
-                     racket-mode
-                     scheme-complete
-                     scribble-mode
-                     ;; / racket-lang
-                     haskell-mode
-                     helm
-                     helm-dash
-                     htmlize
-                     hyde
-                     js2-mode
-                     json-mode
-                     neotree
-                     nvm
-                     magit
-                     markdown-mode
-                     markdown-preview-mode
-                     memoize
-                     nix-buffer
-                     nix-mode
-                     nixos-options
-                     company-nixos-options
-                     nix-sandbox
-                     paredit
-                     php-mode
-                     pickle
-                     polymode
-                     poly-R
-                     poly-rst
-                     psc-ide
-                     psci
-                     purescript-mode
-                     pyenv-mode
-                     pyenv-mode-auto
-                     python-black
-                     python-mode
-                     racer
-                     rainbow-delimiters
-                     rainbow-mode
-                     restclient
-                     company-restclient
-                     repl-toggle
-                     rust-mode
-                     sql-indent
-                     sws-mode
-                     smartparens
-                     use-package
-                     virtualenv
-                     yaml-mode
-                     web-mode
-                     writeroom-mode))
+;; (setq package-list '(solarized-theme
+;;                      alchemist
+;; 		     all-the-icons
+;;                      auto-complete
+;;                      auto-compile
+;;                      cargo
+;;                      company
+;;                      csv-mode
+;;                      dante
+;;                      dash-at-point
+;;                      dhall-mode
+;;                      dockerfile-mode
+;;                      ein
+;;                      elixir-mode
+;;                      elm-mode
+;;                      elpy
+;;                      envrc
+;;                      ess
+;;                      exec-path-from-shell
+;;                      flycheck
+;;                      flycheck-mypy
+;;                      flycheck-rust
+;;                      ;; racket-lang
+;;                      ac-geiser
+;;                      geiser
+;;                      racket-mode
+;;                      scheme-complete
+;;                      scribble-mode
+;;                      ;; / racket-lang
+;;                      haskell-mode
+;;                      helm
+;;                      helm-dash
+;;                      htmlize
+;;                      hyde
+;;                      js2-mode
+;;                      json-mode
+;;                      neotree
+;;                      nvm
+;;                      magit
+;;                      markdown-mode
+;;                      markdown-preview-mode
+;;                      memoize
+;;                      nix-buffer
+;;                      nix-mode
+;;                      nixos-options
+;;                      company-nixos-options
+;;                      nix-sandbox
+;;                      paredit
+;;                      php-mode
+;;                      pickle
+;;                      polymode
+;;                      poly-R
+;;                      poly-rst
+;;                      psc-ide
+;;                      psci
+;;                      purescript-mode
+;;                      pyenv-mode
+;;                      pyenv-mode-auto
+;;                      python-black
+;;                      python-mode
+;;                      racer
+;;                      rainbow-delimiters
+;;                      rainbow-mode
+;;                      restclient
+;;                      company-restclient
+;;                      repl-toggle
+;;                      rust-mode
+;;                      sql-indent
+;;                      sws-mode
+;;                      smartparens
+;;                      use-package
+;;                      virtualenv
+;;                      yaml-mode
+;;                      web-mode
+;;                      writeroom-mode))
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
-(dolist (package package-list)
-  (when (not (package-installed-p package))
-    (package-install package)))
+;; (dolist (package package-list)
+;;   (when (not (package-installed-p package))
+;;     (package-install package)))
 
 ;; Misc config
 (add-to-list 'load-path " ~/local/share/emacs/24.4/lisp/")
