@@ -10,12 +10,13 @@
 ;;; Code:
 
 ;; Package
-(require 'package)
-(add-to-list 'package-archives
-             ;; '("marmalade" . "http://marmalade-repo.org/packages/")
-             ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
-             '("melpa" . "https://melpa.org/packages/")
-             t)
+;; (require 'package)
+
+;; (add-to-list 'package-archives
+;;              ;; '("marmalade" . "http://marmalade-repo.org/packages/")
+;;              ;;'("melpa-stable" . "http://stable.melpa.org/packages/")
+;;              '("melpa" . "https://melpa.org/packages/")
+;;              t)
 
 ;; (setq package-list '(solarized-theme
 ;;                      alchemist
