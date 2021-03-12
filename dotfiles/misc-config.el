@@ -84,8 +84,6 @@
 ;; open file in browser
 (global-set-key "\C-c\C-zv" 'browse-url-of-file)
 
-(provide 'misc-config)
-
 ;; mouse wheel in iterm2 terminal
 
 (require 'mwheel)
@@ -116,6 +114,11 @@
 (selectrum-mode)
 (setq completion-styles '(substring))
 
+;; bind meta to super
+(setq x-meta-keysym 'super
+      x-super-keysym 'meta)
 
+
+(provide 'misc-config)
 
 ;;; misc-config.el ends here
