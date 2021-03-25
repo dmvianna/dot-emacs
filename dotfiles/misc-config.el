@@ -115,8 +115,8 @@
 (setq completion-styles '(substring))
 
 ;; bind meta to super
-(setq x-meta-keysym 'super
-      x-super-keysym 'meta)
+;; (setq x-meta-keysym 'super
+;;       x-super-keysym 'meta)
 
 
 (provide 'misc-config)
