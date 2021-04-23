@@ -20,18 +20,22 @@
 ;; (pyenv-mode)
 ;; (use-package pyenv-mode-auto)
 (use-package flycheck-mypy)
-(if (eq system-type 'darwin)
-    (setq elpy-rpc-python-command "~/.pyenv/shims/python3")
-  ;; else do nothing
-  )
+(setq elpy-rpc-python-command
+      (cond
+       ((eq system-type 'darwin) "~/.pyenv/shims/python3")
+       ((eq system-type 'gnu/linux) "python3")
+       )
+      elpy-syntax-check-command "mypy"
+      python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-prompt"
+      python-shell-prompt-detect-failure-warning nil
+      )
+
 (use-package python-black
  ;; :demand t
  :after python)
 (elpy-enable)
 
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-prompt"
-      python-shell-prompt-detect-failure-warning nil)
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
