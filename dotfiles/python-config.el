@@ -25,7 +25,7 @@
        ((eq system-type 'darwin) "~/.pyenv/shims/python3")
        ((eq system-type 'gnu/linux) "python3")
        )
-      elpy-syntax-check-command "mypy"
+      elpy-syntax-check-command "flake8"
       python-shell-interpreter "jupyter"
       python-shell-interpreter-args "console --simple-prompt"
       python-shell-prompt-detect-failure-warning nil

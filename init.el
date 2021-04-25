@@ -115,6 +115,8 @@
 (use-package flycheck
              :ensure t
              :init (global-flycheck-mode))
+(with-eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
 
 ;; Company -- text completion
 (use-package company
