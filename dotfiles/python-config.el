@@ -19,6 +19,16 @@
 
 ;; (pyenv-mode)
 ;; (use-package pyenv-mode-auto)
+(defun flycheck-python-setup ()
+  (flycheck-mode))
+(add-hook 'python-mode-hook #'flycheck-python-setup)
+
+;; disable flymake
+(when (load "flycheck" t t)
+  (setq elpy-modules nil)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
 (use-package flycheck-mypy)
 (setq elpy-rpc-python-command
       (cond
@@ -38,5 +48,15 @@
 
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq flycheck-python-pylint-executable "pylint")
+            (setq flycheck-pylintrc "/home/dmvianna/.pylintrc")))
+(setq flycheck-checker 'python-pylint)
+(flycheck-add-next-checker 'python-pylint 'python-mypy)
+(flycheck-add-next-checker 'python-mypy 'python-flake8)
+
+
 
 (provide 'python-config)
