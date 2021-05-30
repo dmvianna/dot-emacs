@@ -20,6 +20,9 @@
 (global-auto-revert-mode 1) ;; Reload files that have been changed
 (global-visual-line-mode t) ;; line wrap by default
 
+;; remember which files were open
+(desktop-save-mode 1)
+
 ;;; Tagging
 ;; (require 'etags-table)
 ;; (setq etags-table-search-up-depth 10)
