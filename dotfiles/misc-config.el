@@ -23,6 +23,9 @@
 ;; remember which files were open
 (desktop-save-mode 1)
 
+;; enable horizontal scrolling
+(setq mouse-wheel-tilt-scroll t)
+
 ;;; Tagging
 ;; (require 'etags-table)
 ;; (setq etags-table-search-up-depth 10)
