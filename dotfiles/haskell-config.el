@@ -22,11 +22,15 @@
              )
           )
 
-;;(setq dante-repl-command-line '("cabal" "new-repl" dante-target))
-
-;;;; stylish-haskell
 (custom-set-variables
- '(haskell-stylish-on-save t))
+ '(haskell-completion-backend 'lsp)
+ '(haskell-enable-hindent-style 'fundamental)
+ '(haskell-indent-spaces 2)
+ '(haskell-process-args-ghci "ghci")
+ '(haskell-process-type 'stack-ghci)
+ '(haskell-stylish-on-save 't)
+ '(dante-repl-command-line '("cabal" "new-repl" dante-target))
+ )
 
 (provide 'haskell-config)
 
