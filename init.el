@@ -127,7 +127,7 @@
 (use-package lsp-mode
   :config
   (setq lsp-idle-delay 0.5
-          lsp-enable-symbol-highlighting t
+        lsp-enable-symbol-highlighting t
         lsp-enable-snippet nil  ;; Not supported by company capf, which is the recommended company backend
         lsp-pyls-plugins-flake8-enabled t)
   (lsp-register-custom-settings
