@@ -126,16 +126,23 @@
 ;; enable lsp-mode
 (use-package lsp-mode
   :config
+  (setq lsp-idle-delay 0.5
+          lsp-enable-symbol-highlighting t
+        lsp-enable-snippet nil  ;; Not supported by company capf, which is the recommended company backend
+        lsp-pyls-plugins-flake8-enabled t)
   (lsp-register-custom-settings
    '(("pyls.plugins.pyls_mypy.enabled" t t)
      ("pyls.plugins.pyls_mypy.live_mode" nil t)
      ("pyls.plugins.pyls_black.enabled" t t)
-     ("pyls.plugins.pyls_isort.enabled" t t)))
+     ("pyls.plugins.pyls_isort.enabled" t t)
+     ;; Disable these as they're duplicated by flake8
+     ("pyls.plugins.pycodestyle.enabled" nil t)
+     ("pyls.plugins.mccabe.enabled" nil t)
+     ("pyls.plugins.pyflakes.enabled" nil t)))
   :hook
   ((python-mode . lsp)))
 (use-package lsp-ui
   :commands lsp-ui-mode)
-(setq lsp-pyls-plugins-flake8-enabled t)
 
 ;; Git
 (use-package magit)
@@ -194,7 +201,8 @@
 (use-package purescript-config)
 
 ;; Python
-(use-package python-config)
+;; handled by lsp
+;; (use-package python-config)
 
 ;; Racket
 (use-package racket-mode)
