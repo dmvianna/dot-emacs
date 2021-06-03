@@ -14,11 +14,16 @@
 ;;; Everything hinges on selecting a `pyvenv-workon` *prior* to opening any
 ;;; Python file. After that, one has to restart emacs and try again.
 ;;;
+;;; 2021 update: lsp took over syntax checking. Flymake does nothing here,
+;;; and I left it as a fallback. Apart from (elpy-enable), most everything
+;;; in this file is unnecessary.
+;;;
 ;;; Code:
 
 
 ;; (pyenv-mode)
 ;; (use-package pyenv-mode-auto)
+
 (defun flycheck-python-setup ()
   (flycheck-mode))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
@@ -29,7 +34,20 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(use-package flycheck-mypy)
+
+;; create a checker for mypy
+(flycheck-define-checker
+    python-mypy ""
+    :command ("mypy"
+              "--ignore-missing-imports" "--fast-parser"
+              "--python-version" "3.9"
+              source-original)
+    :error-patterns
+    ((error line-start (file-name) ":" line ": error:" (message) line-end))
+    :modes python-mode)
+
+(add-to-list 'flycheck-checkers 'python-mypy t)
+
 (setq elpy-rpc-python-command
       (cond
        ((eq system-type 'darwin) "~/.pyenv/shims/python3")
