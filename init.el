@@ -126,23 +126,65 @@
 ;; enable lsp-mode
 (use-package lsp-mode
   :config
-  (setq lsp-idle-delay 0.5
-        lsp-enable-symbol-highlighting t
-        lsp-enable-snippet nil  ;; Not supported by company capf, which is the recommended company backend
-        lsp-pyls-plugins-flake8-enabled t)
+  (custom-set-variables
+   '(lsp-idle-delay 0.5)
+   '(lsp-enable-symbol-highlighting t)
+   '(lsp-enable-snippet nil)  ;; Not supported by company capf, which is the recommended company backend
+   ;;; python
+   '(lsp-pyls-plugins-flake8-enabled t)
+     ;;; haskell
+   '(haskell-completion-backend 'lsp)
+   '(haskell-enable-hindent-style 'fundamental)
+   '(haskell-indent-spaces 2)
+   '(haskell-process-args-ghci "ghci")
+   '(haskell-process-type 'stack-ghci)
+   '(haskell-stylish-on-save 't)
+   '(lsp-modeline-code-actions-enable nil)
+   )
+
   (lsp-register-custom-settings
-   '(("pyls.plugins.pyls_mypy.enabled" t t)
+   ;;; python
+   '(
+     ("pyls.plugins.pyls_mypy.enabled" t t)
      ("pyls.plugins.pyls_mypy.live_mode" nil t)
      ("pyls.plugins.pyls_black.enabled" t t)
      ("pyls.plugins.pyls_isort.enabled" t t)
      ;; Disable these as they're duplicated by flake8
      ("pyls.plugins.pycodestyle.enabled" nil t)
      ("pyls.plugins.mccabe.enabled" nil t)
-     ("pyls.plugins.pyflakes.enabled" nil t)))
+     ("pyls.plugins.pyflakes.enabled" nil t)
+     )
+   )
   :hook
-  ((python-mode . lsp)))
+  (
+   (python-mode . lsp)
+   (haskell-mode . lsp)
+   (haskell-literate-mode . lsp)
+   )
+  )
 (use-package lsp-ui
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :hook
+  (prog-mode . lsp-ui-mode)
+  :init
+   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  :config
+  (custom-set-variables
+   '(lsp-ui-sideline-show-diagnostics t)
+   '(lsp-ui-sideline-show-hover t)
+   '(lsp-ui-sideline-show-code-actions t)
+   '(lsp-ui-sideline-update-mode t)
+   '(lsp-ui-peek-enable t)
+   '(lsp-ui-peek-show-directory t)
+   '(lsp-ui-doc-enable t)
+   '(lsp-ui-doc-position 'bottom)
+   '(lsp-ui-doc-show-with-cursor t)
+   '(lsp-ui-doc-show-with-mouse t)
+   '(lsp-ui-imenu-auto-refresh t)
+   '(lsp-ui-imenu-window-width 40)
+   )
+  )
 
 ;; Git
 (use-package magit)
@@ -175,7 +217,8 @@
 (setq elm-format-on-save t)
 
 ;; Haskell
-(use-package haskell-config)
+;; using lsp now
+;; (use-package haskell-config)
 
 ;; JavaScript
 (use-package javascript-config)
