@@ -134,11 +134,15 @@
    '(lsp-pyls-plugins-flake8-enabled t)
      ;;; haskell
    '(haskell-completion-backend 'lsp)
+   '(haskell-process-suggest-remove-import-lines t)
+   '(haskell-process-auto-import-loaded-modules t)
+   '(haskell-process-log t)
    '(haskell-enable-hindent-style 'fundamental)
    '(haskell-indent-spaces 2)
    '(haskell-process-args-ghci "ghci")
    '(haskell-process-type 'stack-ghci)
    '(haskell-stylish-on-save 't)
+   '(haskell-tags-on-save t)
    '(lsp-modeline-code-actions-enable nil)
    )
 
@@ -217,8 +221,7 @@
 (setq elm-format-on-save t)
 
 ;; Haskell
-;; using lsp now
-;; (use-package haskell-config)
+(use-package haskell-config)
 
 ;; JavaScript
 (use-package javascript-config)
