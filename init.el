@@ -160,19 +160,15 @@
      )
    )
   :hook
-  (
-   (python-mode . lsp)
-   (haskell-mode . lsp)
-   (haskell-literate-mode . lsp)
-   )
+  (lambda ()
+    ((python-mode . lsp))
+    ((haskell-mode . lsp))
+    ((haskell-literate-mode . lsp))
+    )
   )
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :hook
-  (prog-mode . lsp-ui-mode)
-  :init
-   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  :hook 'haskell-lsp-ui-mode-hook
   :config
   (custom-set-variables
    '(lsp-ui-sideline-show-diagnostics t)
@@ -221,7 +217,10 @@
 (setq elm-format-on-save t)
 
 ;; Haskell
+;; using lsp
+(use-package lsp-haskell)
 (use-package haskell-config)
+(add-hook 'haskell-mode-hook 'haskell-config-mode-hook)
 
 ;; JavaScript
 (use-package javascript-config)
