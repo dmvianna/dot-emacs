@@ -116,6 +116,10 @@
              :ensure t
              :init (global-flycheck-mode))
 
+(use-package flyspell
+  :custom
+  (ispell-program-name "hunspell"))
+
 ;; Company -- text completion
 (use-package company
   :ensure t)
@@ -196,8 +200,9 @@
 (with-library 'sql-config)
 
 ;; Gherkin
-(use-package pickle)
-(add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode))
+(use-package pickle
+  :init
+  (add-to-list 'auto-mode-alist '("\\.feature\\'" . pickle-mode)))
 
 ;; Nix
 (use-package nix-config)
@@ -210,8 +215,8 @@
 (setq dhall-format-command nil)
 
 ;; Elixir
-(use-package elixir-mode)
-(add-to-list 'elixir-mode-hook 'alchemist-mode)
+(use-package elixir-mode
+  :hook alchemist)
 
 ;; Elm
 (setq elm-format-on-save t)
@@ -219,20 +224,23 @@
 ;; Haskell
 ;; using lsp
 (use-package lsp-haskell)
-(use-package haskell-config)
-(add-hook 'haskell-mode-hook 'haskell-config-mode-hook)
+(use-package haskell-config
+  :hook haskell)
 
 ;; JavaScript
 (use-package javascript-config)
 
 ;; JSON
-(use-package json-mode)
-(add-to-list 'auto-mode-alist '("\\.json\\'\\|\\.jshintrc\\'" . json-mode))
+(use-package json-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.json\\'\\|\\.jshintrc\\'" . json-mode)))
 
 ;; Markdown
-(use-package markdown-mode)
-(add-to-list 'auto-mode-alist
-             '("\\.md$" . markdown-mode))
+(use-package markdown-mode
+  :hook flyspell
+  :init
+  (add-to-list 'auto-mode-alist
+               '("\\.md$" . markdown-mode)))
 
 ;; Jekyll
 (use-package hyde)
@@ -270,9 +278,8 @@
 (use-package rainbow-mode)
 
 ;; rainbow-delimiters for elisp
-(use-package rainbow-delimiters)
-(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'geiser-mode-hook #'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :hook (emacs-lisp geiser))
 
 ;; paredit to match lisp parentheses
 (autoload 'enable-paredit-mode "paredit"
